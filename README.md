@@ -1,59 +1,73 @@
-# MovieWebsite
+# Movie App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+A movie discovery app built with **Angular 20** on top of [The Movie Database (TMDB)](https://www.themoviedb.org/) API: browse and search films, open a details page with recommendations, and keep favorites and a watchlist on your TMDB account.
 
-## Development server
+**[Live demo →](https://montaser-hub.github.io/movie-website/search)**
 
-To start a local development server, run:
+> **Team project.** Built by five people as an ITI training project. This repository is my copy of the team's work, with the full commit history and everyone's authorship preserved. See [Team](#team) for who built what.
 
-```bash
-ng serve
-```
+![Browse movies](docs/browse.webp)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Movie details and recommendations | Account page |
+| --- | --- |
+| ![Details](docs/details.webp) | ![Account](docs/account.webp) |
 
-## Code scaffolding
+<img src="docs/login.webp" alt="Login" width="560" /> <img src="docs/mobile.webp" alt="Mobile layout" width="200" />
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Features
 
-```bash
-ng generate component component-name
-```
+- **Browse and search** movies with a genre filter, sort options and pagination. Press Enter or the button to search.
+- **Movie details:** rating, genres, duration, production companies, trailer link and recommendations.
+- **Favorites and watchlist**, saved to your TMDB account.
+- **Sign in with TMDB:** the app creates a TMDB session from your TMDB username and password.
+- **Account pages:** profile details and an edit-profile form with validation.
+- **Two languages:** switch between English and Arabic from the header.
+- **Responsive** Bootstrap 5 layout with skeleton loaders while data loads.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Team
 
-```bash
-ng generate --help
-```
+| Area | Built by |
+| --- | --- |
+| Account details, edit profile, favorites page, footer with pagination, language switching, search pagination, PR review and merging | **Montaser Ismail** |
+| Login, HTTP service, project setup | Mohamed Mahmoud |
+| Main page, search page, movie cards | Omar Ali |
+| Movie details | Hazem Hefny |
+| Watchlist | Sherok Mohamed |
 
-## Building
+Many files were touched by more than one person; `git log` and `git blame` have the exact picture.
 
-To build the project run:
+## Tech
 
-```bash
-ng build
-```
+Angular 20 (standalone components, router, forms) · TypeScript · RxJS · Bootstrap 5 and Bootstrap Icons · TMDB REST API · Jasmine and Karma
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Run locally
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Requirements: Node.js 20.19+ or 22.12+.
 
 ```bash
-ng e2e
+git clone https://github.com/montaser-hub/movie-website.git
+cd movie-website
+npm ci
+npm start          # http://localhost:4200
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### TMDB API key
 
-## Additional Resources
+The key lives in [`src/environments/environment.ts`](src/environments/environment.ts). TMDB keys are free: create one under *Settings → API* in your TMDB account and replace the value there. A browser app can't hide this key, because it is sent with every request, so use a key from an account made for this app.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Deployment
+
+Every push to `main` builds the app and publishes it to GitHub Pages through [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The workflow copies `index.html` to `404.html` so deep links such as `/details/27205` keep working after a refresh.
+
+## Project structure
+
+```
+src/app/component/   pages and UI pieces (search, details, account, wishlist, header, footer…)
+src/app/services/    TMDB HTTP service, account, language and shared state
+src/app/models/      movie and user types
+src/environments/    API settings
+```
+
+## Credits
+
+Movie data and images come from [TMDB](https://www.themoviedb.org/). This product uses the TMDB API but is not endorsed or certified by TMDB.
