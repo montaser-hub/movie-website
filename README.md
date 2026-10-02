@@ -57,7 +57,11 @@ The key lives in [`src/environments/environment.ts`](src/environments/environmen
 
 ## Deployment
 
-Every push to `main` builds the app and publishes it to GitHub Pages through [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The workflow copies `index.html` to `404.html` so deep links such as `/details/27205` keep working after a refresh.
+```bash
+npm run deploy
+```
+
+[`scripts/deploy.sh`](scripts/deploy.sh) builds the app with the `/movie-website/` base path and pushes the result to the `gh-pages` branch, which GitHub Pages serves. It copies `index.html` to `404.html` so deep links such as `/details/27205` keep working after a refresh.
 
 ## Project structure
 
