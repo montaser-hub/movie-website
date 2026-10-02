@@ -29,10 +29,9 @@ A movie discovery app built with **Angular 20** on top of [The Movie Database (T
 | Area | Built by |
 | --- | --- |
 | Account details, edit profile, favorites page, footer with pagination, language switching, search pagination, PR review and merging | **Montaser Ismail** |
-| Login, HTTP service, project setup | Mohamed Mahmoud |
+| Login, HTTP service, project setup, Watchlist | Mohamed Mahmoud |
 | Main page, search page, movie cards | Omar Ali |
 | Movie details | Hazem Hefny |
-| Watchlist | Sherok Mohamed |
 
 Many files were touched by more than one person; `git log` and `git blame` have the exact picture.
 
