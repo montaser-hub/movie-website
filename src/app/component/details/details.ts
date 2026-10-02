@@ -5,6 +5,7 @@ import { HttpService } from '../../services/http-service';
 import { MovieModel } from '../../models/movie-model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { LanguageService } from '../../services/language-service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-details',
@@ -15,7 +16,7 @@ import { LanguageService } from '../../services/language-service';
 export class Details {
   movies: MovieModel[] = [];
   movie: any;
-  apiKey = 'b11725f9e5398c8211838ec6320bf330';
+  apiKey = environment.tmdb.apiKey;
   genres: any[] = [];
   movieId: any;
   constructor(

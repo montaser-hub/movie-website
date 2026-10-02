@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../../services/http-service';
 import { CommonModule } from '@angular/common';
 import { SafeUrlPipe } from '../../safe-url-pipe';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-movie-details-component',
@@ -14,7 +15,7 @@ import { SafeUrlPipe } from '../../safe-url-pipe';
 export class MovieDetailsComponent {
   movie: any;
   trailerUrl: string | null = null;
-  apiKey = 'b11725f9e5398c8211838ec6320bf330';
+  apiKey = environment.tmdb.apiKey;
   language = localStorage.getItem('lang');
 
   constructor(private route: ActivatedRoute, private http: HttpService) {}

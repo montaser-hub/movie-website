@@ -6,6 +6,7 @@
       class="form-control w-80"
       placeholder="{{t('searchPlaceholder')}}"
       [(ngModel)]="query"
+      (keyup.enter)="SearchMovies()"
     />
     <button class="btn btn-warning fw-semibold" type="button" (click)="SearchMovies()">{{ t('searchButton') }}</button>
   </div>

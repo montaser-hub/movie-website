@@ -2,32 +2,34 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { catchError,  throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
   constructor(private http:HttpClient) { }
-apiKey = 'a6493890665a35d49413ed72aa7c489c';
+apiKey = environment.tmdb.apiKey;
+  private apiUrl = environment.tmdb.apiUrl;
 request_token:string=''
 
 
 login(username: string, password: string): Observable<any> {
   return this.http
     // Step 1: Get request token
-    .get<any>(`https://api.themoviedb.org/3/authentication/token/new?api_key=${this.apiKey}`)
+    .get<any>(`${this.apiUrl}/authentication/token/new?api_key=${this.apiKey}`)
     .pipe(
       switchMap((res: any) => {
         const request_token = res.request_token;
 
         // Step 2: Validate token with login
         return this.http.post<any>(
-          `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${this.apiKey}`,
+          `${this.apiUrl}/authentication/token/validate_with_login?api_key=${this.apiKey}`,
           { username, password, request_token }
         ).pipe(
           // Step 3: Create session after validation
           switchMap(() => {
             return this.http.post<any>(
-              `https://api.themoviedb.org/3/authentication/session/new?api_key=${this.apiKey}`,
+              `${this.apiUrl}/authentication/session/new?api_key=${this.apiKey}`,
               { request_token }
             );
           })
@@ -49,7 +51,7 @@ login(username: string, password: string): Observable<any> {
 }
 
 get(endpoint: string, params?: Record<string, any>): Observable<any> {
-  let url = `https://api.themoviedb.org/3/${endpoint}?api_key=${this.apiKey}`;
+  let url = `${this.apiUrl}/${endpoint}?api_key=${this.apiKey}`;
 
   if (params) {
     const query = new URLSearchParams(params).toString();
@@ -64,7 +66,7 @@ get(endpoint: string, params?: Record<string, any>): Observable<any> {
   const separator = endpoint.includes('?') ? '&' : '?';
 
   return this.http.post(
-    `https://api.themoviedb.org/3/${endpoint}${separator}api_key=${this.apiKey}`,
+    `${this.apiUrl}/${endpoint}${separator}api_key=${this.apiKey}`,
     body
   );
 }

@@ -130,3 +130,9 @@
   cursor: default;
   box-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
 }
+
+/* Let the page buttons wrap on narrow screens instead of overflowing. */
+.pagination {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}

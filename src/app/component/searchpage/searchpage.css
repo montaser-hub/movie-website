@@ -1,0 +1,9 @@
+
+/* Phones: give the two filter dropdowns half the row each. */
+@media (max-width: 576px) {
+  .form-select.w-25 {
+    width: auto !important;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
