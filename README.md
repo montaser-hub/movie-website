@@ -28,8 +28,8 @@ A movie discovery app built with **Angular 20** on top of [The Movie Database (T
 
 | Area | Built by |
 | --- | --- |
-| Account details, edit profile, favorites page, footer with pagination, language switching, search pagination, PR review and merging | **Montaser Ismail** |
-| Login, HTTP service, project setup, Watchlist | Mohamed Mahmoud |
+| Account details, edit profile, footer with pagination, language switching, search pagination, PR review and merging | **Montaser Ismail** |
+| Login, HTTP service, project setup, Watchlist, favorites page, PR review and merging | Mohamed Mahmoud |
 | Main page, search page, movie cards | Omar Ali |
 | Movie details | Hazem Hefny |
 
