@@ -4,7 +4,7 @@
 // so use a key from an account made for this app only.
 export const environment = {
   tmdb: {
-    apiKey: 'a6493890665a35d49413ed72aa7c489c',
+    apiKey: 'b11725f9e5398c8211838ec6320bf330',
     apiUrl: 'https://api.themoviedb.org/3',
     imageUrl: 'https://image.tmdb.org/t/p',
   },
