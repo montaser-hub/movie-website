@@ -11,6 +11,9 @@ npx ng build --base-href "$BASE_HREF"
 # GitHub Pages has no SPA fallback: serve the app for unknown paths too, so
 # deep links such as /details/27205 survive a refresh.
 cp "$OUT/index.html" "$OUT/404.html"
+# The public entry page gets a real file as well, so links to it return 200
+# rather than the 404 fallback (which link previews and crawlers treat as broken).
+mkdir -p "$OUT/search" && cp "$OUT/index.html" "$OUT/search/index.html"
 touch "$OUT/.nojekyll"
 
 SHA=$(git rev-parse --short HEAD)
